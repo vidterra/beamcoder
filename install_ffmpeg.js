@@ -218,12 +218,7 @@ case 'win32':
   }
   break;
 case 'linux':
-  if (os.arch() != 'x64') {
-    console.error('Only 64-bit platforms are supported.');
-    process.exit(1);
-  } else {
-    linux();
-  }
+  linux();
   break;
 case 'darwin':
   if (os.arch() != 'x64') {
