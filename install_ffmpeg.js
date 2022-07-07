@@ -166,7 +166,7 @@ async function linux() {
     console.error('libswscale.so.6 is not installed.');
     result = 1;
   }
-
+  result = 0;
   if (result === 1) {
     console.log(`Try running the following (Ubuntu/Debian):
 sudo add-apt-repository ppa:jonathonf/ffmpeg-4
