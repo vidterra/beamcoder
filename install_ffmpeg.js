@@ -131,49 +131,8 @@ async function win32() {
 
 async function linux() {
   console.log('Checking FFmpeg dependencies for Beam Coder on Linux.');
-  const { stdout } = await execFile('ldconfig', ['-p']).catch(console.error);
-  let result = 0;
 
-  if (stdout.indexOf('libavcodec.so.59') < 0) {
-    console.error('libavcodec.so.59 is not installed.');
-    result = 1;
-  }
-  if (stdout.indexOf('libavformat.so.59') < 0) {
-    console.error('libavformat.so.59 is not installed.');
-    result = 1;
-  }
-  if (stdout.indexOf('libavdevice.so.59') < 0) {
-    console.error('libavdevice.so.59 is not installed.');
-    result = 1;
-  }
-  if (stdout.indexOf('libavfilter.so.8') < 0) {
-    console.error('libavfilter.so.8 is not installed.');
-    result = 1;
-  }
-  if (stdout.indexOf('libavutil.so.57') < 0) {
-    console.error('libavutil.so.57 is not installed.');
-    result = 1;
-  }
-  if (stdout.indexOf('libpostproc.so.56') < 0) {
-    console.error('libpostproc.so.56 is not installed.');
-    result = 1;
-  }
-  if (stdout.indexOf('libswresample.so.4') < 0) {
-    console.error('libswresample.so.4 is not installed.');
-    result = 1;
-  }
-  if (stdout.indexOf('libswscale.so.6') < 0) {
-    console.error('libswscale.so.6 is not installed.');
-    result = 1;
-  }
-  result = 0;
-  if (result === 1) {
-    console.log(`Try running the following (Ubuntu/Debian):
-sudo add-apt-repository ppa:jonathonf/ffmpeg-4
-sudo apt-get install libavcodec-dev libavformat-dev libavdevice-dev libavfilter-dev libavutil-dev libpostproc-dev libswresample-dev libswscale-dev`);
-    process.exit(1);
-  }
-  return result;
+  return 0;
 }
 
 async function darwin() {
